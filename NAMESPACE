@@ -1,0 +1,7 @@
+useDynLib(npem)
+
+# Export functions
+export(npem.em, npem.ll, npem.sem, npem.start, npsim)
+
+# import
+importFrom(stats, rnorm, rpois)

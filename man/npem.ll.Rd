@@ -1,0 +1,57 @@
+\name{npem.ll}
+\alias{npem.ll}
+\title{Calculate the log likelihood for the normal-Poisson model}
+\description{
+  Calculates the log likelihood at a single point in the parameter
+  space, for the normal-Poisson mixture model with data on a cell
+  proliferation assay.
+}
+\usage{
+npem.ll(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1, maxk=30)
+}
+%- maybe also `usage' for other objects documented here.
+\arguments{
+  \item{y}{Vector of transformed scintillation counts, in
+    lexicographical order (plate by plate and group by group within a
+    plate.)} 
+  \item{ests}{Value of the parameters at which to calculate the log
+    likelihood, as a vector of length n.groups + 3*n.plates, of the
+    form (\eqn{\lambda}{lambda}'s, (a, b, \eqn{\sigma}{sigma})'s), where
+    \eqn{\lambda}{lambda} is the average number of responding cells per
+    \eqn{10^6} cells for a group, and (a, b, \eqn{\sigma}{sigma}) are
+    the plate-specific parameters.}  
+  \item{cells}{Number of cells per well.  The \eqn{\lambda}{lambda}'s
+    will be rescaled to give response per \eqn{10^6} cells.  This may be
+    either a single number (if all wells have the same number of cells,
+    or \eqn{10^6} if one wishes the \eqn{\lambda}{lambda}'s to not be
+    rescaled), a value for each plate (vector of length \code{n.plates},
+    or a value for each well (a vector of the same length as \code{y}).} 
+  \item{n}{Vector giving the number of wells within each group.  This
+    may have length either n.groups (if all plates have the same
+    number of wells per group) or n.groups*n.plates.}
+  \item{n.plates}{The number of plates in the data.}
+  \item{maxk}{Maximum k value in sum calculating \eqn{E(k | y)}.}
+}
+\details{
+  Calculations are performed in a C routine.
+}
+\value{
+  \item{loglik}{The log likelihood function calculated at the point
+    \code{ests} in the parameter space.}
+}
+\references{Broman et al. (1996) Estimation of antigen-responsive T cell
+  frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132}
+\author{Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
+\url{http://biosun01.biostat.biostat.wisc.edu/~kbroman/software/npem.html}} 
+
+\seealso{\code{\link{npem.em}}}
+
+\examples{
+  data(p713)
+  start.pl3 <- npem.start(p713$counts[[3]],n=p713$n)
+  out.pl3 <- npem.em(p713$counts[[3]],start.pl3,n=p713$n)
+  npem.ll(p713$counts[[3]],start.pl3,n=p713$n)
+  npem.ll(p713$counts[[3]],out.pl3$ests,n=p713$n)
+}
+
+\keyword{models}

@@ -1,0 +1,10 @@
+Package: npem
+Version: 0.51-2
+Date: 11/7/2011
+Title: Analysis of cell proliferation assays
+Author: Karl W Broman <kbroman@biostat.wisc.edu>
+Maintainer: Karl W Broman <kbroman@biostat.wisc.edu>
+Description: Analysis of cell proliferation assays with a normal-Poisson mixture model
+Depends: R (>= 2.10.1), stats
+License: GPL (version 2 or later)
+URL: http://www.biostat.wisc.edu/~kbroman/software/npem.html
