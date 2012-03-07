@@ -56,10 +56,4 @@ Version 0.50, 08/20/2000
 
 
 ----------------------------------------------------------------------
-Karl W Broman (kbroman@biostat.wisc.edu)
-
-
-copyright (c) 2001, Karl W Broman
-Licensed under the GNU General Public License version 2 (June, 1991)
-
 http://www.biostat.wisc.edu/~kbroman/software/npem.html
