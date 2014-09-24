@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kbroman/npem.png?branch=master)](https://travis-ci.org/kbroman/npem)
 
-copyright (c) 2000-2012, [Karl W Broman](http://kbroman.org)
+[Karl W Broman](http://kbroman.org)
 
 [R/npem](https://github.com/kbroman/npem) is an R package for the analysis of cell proliferation assays
 with a normal-Poisson mixture model.
