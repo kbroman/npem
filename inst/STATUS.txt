@@ -1,5 +1,9 @@
-Library npem
-============
+Revision history for the R/npem package
+----------------------------------------------------------------------
+copyright (c) 2000-2011, Karl W Broman
+Licensed under the GNU General Public License version 2 (June, 1991)
+https://github.com/kbroman/npem
+----------------------------------------------------------------------
 
 Verison 0.51-2, 11/7/2011:
 
@@ -26,7 +30,7 @@ Version 0.50-7, 10/16/2006
 Version 0.50-6, 6/22/2003
 
   In calls to C code (using the .C() function), now make use of the
-  PACKAGE argument.  
+  PACKAGE argument.
 
   Replaced calls to printf and fprintf with calls to Rprintf in
   the C code.
@@ -45,7 +49,7 @@ Version 0.50-4, 11/19/2001
 Version 0.50-3, 05/28/2001
 
   I've revised some of the help pages so that they work with LaTeX.
-  I also added examples to the help pages for npem.sem, npem.start, 
+  I also added examples to the help pages for npem.sem, npem.start,
   npem.ll, and npsim.
 
 
@@ -53,7 +57,3 @@ Version 0.50, 08/20/2000
 
   This is a set of functions for analyzing cell proliferation assays
   with a normal-Poisson mixture model.
-
-
-----------------------------------------------------------------------
-http://www.biostat.wisc.edu/~kbroman/software/npem.html
