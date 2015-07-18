@@ -3,7 +3,7 @@
 \title{Simulate data for the normal-Poisson mixture model}
 \description{
   Simulate data for a single plate using the normal-Poisson mixture
-  model. 
+  model.
 }
 
 \usage{
@@ -25,7 +25,7 @@ npsim(ests, n=c(24, 24, 24, 22))
 \references{Broman et al. (1996) Estimation of antigen-responsive T cell
   frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132}
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
-\url{http://biosun01.biostat.biostat.wisc.edu/~kbroman/software/npem.html} }
+\url{https://github.com/kbroman/npem} }
 
 \seealso{\code{\link{npem.em}}}
 

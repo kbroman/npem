@@ -2,12 +2,12 @@
 \alias{p713}
 
 \title{Data for a limiting dilution assay}
-\description{ 
+\description{
   This is data for a limiting dilution assay for a single patient,
   composed of 6 pairs of plates at 6 different cell concentrations.
   The data is from the same subject (at the same time) as
   \code{\link{p713.2}}.
-} 
+}
 \source{
   Michael Tigges, Chiron Biocine
 }
@@ -25,7 +25,7 @@
 }
 \author{Karl W Broman,
 \email{kbroman@biostat.wisc.edu} \cr
-\url{http://biosun01.biostat.biostat.wisc.edu/~kbroman/software/npem.html} }
+\url{https://github.com/kbroman/npem} }
 
 \seealso{\code{\link{p713.2}}, \code{\link{p711}}, \code{\link{npem.em}}}
 

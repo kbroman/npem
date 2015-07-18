@@ -21,10 +21,10 @@ npem.sem(y, npem.em.out, cells=10^6, start=npem.em.out$ests * 1.05 + 0.001,
     either a single number (if all wells have the same number of cells,
     or \eqn{10^6} if one wishes the \eqn{\lambda}{lambda}'s to not be
     rescaled), a value for each plate (vector of length \code{n.plates},
-    or a value for each well (a vector of the same length as \code{y}).} 
+    or a value for each well (a vector of the same length as \code{y}).}
   \item{start}{Starting estimates, some small distance away from the
     MLE.  A vector of the form (\eqn{\lambda}{lambda}'s, (a, b,
-    \eqn{\sigma}{sigma})'s).} 
+    \eqn{\sigma}{sigma})'s).}
   \item{n}{Vector giving the number of wells within each group.  This
     may have length either n.groups (if all plates have the same
     number of wells per group) or n.groups*n.plates.}
@@ -53,7 +53,7 @@ npem.sem(y, npem.em.out, cells=10^6, start=npem.em.out$ests * 1.05 + 0.001,
   \item{infor}{The full-data information matrix}
   \item{rates}{The rate matrix ("DM" in Meng and Rubin's notation).}
   \item{n.iter}{Number of iterations performed in calculating the rate
-    matrix.} 
+    matrix.}
   \item{var}{The estimated variance-covariance matrix.}
   \item{se}{The estimated standard errors.  (The square root of the
     diagnol of \code{var}.)}
@@ -65,9 +65,9 @@ npem.sem(y, npem.em.out, cells=10^6, start=npem.em.out$ests * 1.05 + 0.001,
   39:1-38 \cr
   Meng and Rubin (1991) Using EM to obtain asymptotic
   variance-covariance matrices: the SEM algorithm.  J Am Statist Asso
-  86:899-909} 
+  86:899-909}
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
-\url{http://biosun01.biostat.biostat.wisc.edu/~kbroman/software/npem.html}} 
+\url{https://github.com/kbroman/npem}}
 
 \seealso{\code{\link{npem.em}}}
 

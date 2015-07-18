@@ -12,20 +12,20 @@ npem.em(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
 \arguments{
   \item{y}{Vector of transformed scintillation counts, in
     lexicographical order (plate by plate and group by group within a
-    plate.)} 
+    plate.)}
   \item{ests}{Initial parameter estimates, as a vector of length
     n.groups + 3*n.plates, of the form (\eqn{\lambda}{lambda}'s, (a, b,
     \eqn{\sigma}{sigma})'s), where \eqn{\lambda}{lambda} is the average
     number of responding cells per \eqn{10^6} cells for a group, and (a,
-    b, \eqn{\sigma}{sigma}) are the plate-specific parameters.} 
+    b, \eqn{\sigma}{sigma}) are the plate-specific parameters.}
   \item{cells}{Number of cells per well.  The \eqn{\lambda}{lambda}'s
     will be rescaled to give response per \eqn{10^6} cells.  This may be
     either a single number (if all wells have the same number of cells,
     or \eqn{10^6} if one wishes the \eqn{\lambda}{lambda}'s to not be
     rescaled), a value for each plate (vector of length \code{n.plates},
-    or a value for each well (a vector of the same length as \code{y}).} 
+    or a value for each well (a vector of the same length as \code{y}).}
   \item{n}{Vector giving the number of wells within each group.  This
-    may have length either n.groups (if all plates have the same 
+    may have length either n.groups (if all plates have the same
     number of wells per group) or n.groups*n.plates.}
   \item{n.plates}{The number of plates in the data.}
   \item{use.order.constraint}{If TRUE, force the constraint
@@ -36,7 +36,7 @@ npem.em(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
   \item{maxk}{Maximum k value in sum calculating E(k | y).}
   \item{prnt}{If 0, don't print anything; if 1, print the log likelihood
     at each iteration; and if 2, print the est's and the log lik. at
-    each iteration.} 
+    each iteration.}
 }
 \details{
   Calculations are performed in a C routine.
@@ -54,9 +54,9 @@ npem.em(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
   frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132
   \cr Dempster et al. (1977) Maximum likelihood estimation from
   incomplete data via the EM algorithm.  J Roy Statist Soc Ser B
-  39:1-38}  
+  39:1-38}
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
-\url{http://biosun01.biostat.biostat.wisc.edu/~kbroman/software/npem.html}} 
+\url{https://github.com/kbroman/npem}}
 
 \seealso{\code{\link{npem.sem}}, \code{\link{npem.start}},
   \code{\link{npsim}}, \code{\link{npem.ll}}}
@@ -68,7 +68,7 @@ npem.em(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
   # analysis of plate3
     # get starting values
   start.pl3 <- npem.start(p713$counts[[3]],n=p713$n)
-    # get estimates 
+    # get estimates
   out.pl3 <- npem.em(p713$counts[[3]],start.pl3,n=p713$n)
     # look at log likelihood at starting and ending points
   npem.ll(p713$counts[[3]],start.pl3,n=p713$n)
@@ -84,8 +84,8 @@ npem.em(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
   # repeat the above for the pair, plates 3 and 4
     # get starting values
   start.pl34 <- npem.start(unlist(p713$counts[3:4]),n=p713$n,n.plates=2)
-    # get estimates 
-  out.pl34 <- npem.em(unlist(p713$counts[3:4]),start.pl34,n=p713$n,n.plates=2) 
+    # get estimates
+  out.pl34 <- npem.em(unlist(p713$counts[3:4]),start.pl34,n=p713$n,n.plates=2)
     # look at log likelihood at starting and ending points
   npem.ll(unlist(p713$counts[3:4]),start.pl34,n=p713$n,n.plates=2)
   npem.ll(unlist(p713$counts[3:4]),out.pl34$ests,n=p713$n,n.plates=2)
