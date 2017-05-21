@@ -1,4 +1,4 @@
-useDynLib(npem)
+useDynLib(npem, .registration=TRUE)
 
 # Export functions
 export(npem.em, npem.ll, npem.sem, npem.start, npsim)
