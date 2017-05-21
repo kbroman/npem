@@ -224,7 +224,7 @@ void npem_em_e(double *y, int *n_plates, double *c, int *n_groups,
           du = gammaln((double)r);
           k[j] += exp(f - du);
           ksq[j] += exp(f + log((double)r) - du);
-	  du = gammaln((double)(r+1));
+      du = gammaln((double)(r+1));
           g += exp(f - du);
         }
         if(g < 1e-50) {
@@ -440,7 +440,7 @@ void npem_ll(double *y, int *n_plates, double *c, int *n_groups,
         for(r=0; r < (*maxk); r++) {
           g = (y[j] - ests[absig_loc] - ests[absig_loc+1]
                * ((double)r)) / ests[absig_loc+2];
-	  du = gammaln((double)(r+1));
+      du = gammaln((double)(r+1));
           f += exp(-0.5*g*g + ((double)r)*log(ests[i]*c[j]) - du);
         }
         if(f <= 1e-50) f = 1e-50;
@@ -459,8 +459,8 @@ double gammaln(double xx)
 {
   double x, y, tmp, ser;
   static double cof[6]={76.18009172947146,-86.50532032941677,
-			24.01409824083091,-1.231739572450155,
-			0.1208650973866179e-2, -0.5395239384953e-5};
+            24.01409824083091,-1.231739572450155,
+            0.1208650973866179e-2, -0.5395239384953e-5};
   int j;
 
   y = x = xx;

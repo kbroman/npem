@@ -1,4 +1,3 @@
-
 ######################################################################
 #
 # npem
@@ -205,12 +204,10 @@ function(ests, n = c(24,24,24,22))
   ests[ests < 1e-10] <- 1e-10
 
   k <- vector("list",n.groups)
-  for(i in 1:n.groups) 
+  for(i in 1:n.groups)
     k[[i]] <- rpois(n[i],ests[i])
   k <- unlist(k)
   y <- rnorm(sum(n),ests[n.groups+1]+ests[n.groups+2]*k,ests[n.groups+3])
 
   list(k = k, y = y)
 }
-
-

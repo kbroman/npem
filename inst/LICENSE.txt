@@ -1,4 +1,3 @@
-
 Users of the npem package must agree to the terms of the following
 license agreement.
 
@@ -6,16 +5,16 @@ license agreement.
 
 GNU General Public License
 
-  
-Version 2, June 1991 
 https://www.gnu.org/copyleft/gpl.html
 
-Copyright (C) 1989, 1991 Free Software Foundation, Inc.  
+Version 2, June 1991
+
+Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
-  
+
 
 ----------------------------------------------------------------------
 
@@ -351,7 +350,7 @@ when it starts in an interactive mode:
 Gnomovision version 69, Copyright (C) year name of author
 Gnomovision comes with ABSOLUTELY NO WARRANTY; for details
 type `show w'.  This is free software, and you are welcome
-to redistribute it under certain conditions; type `show c' 
+to redistribute it under certain conditions; type `show c'
 for details.
 
 The hypothetical commands `show w' and `show c' should show the
@@ -366,7 +365,7 @@ if necessary.  Here is a sample; alter the names:
 
 Yoyodyne, Inc., hereby disclaims all copyright
 interest in the program `Gnomovision'
-(which makes passes at compilers) written 
+(which makes passes at compilers) written
 by James Hacker.
 
 signature of Ty Coon, 1 April 1989

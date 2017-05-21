@@ -610,4 +610,3 @@ void npem_get_var(double *infor, double *rates, int *n_param,
     }
   }
 }
-

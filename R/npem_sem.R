@@ -1,4 +1,3 @@
-
 ######################################################################
 #
 # npem
@@ -118,5 +117,3 @@ function(y, npem.em.out, cells=10^6, start=npem.em.out$ests * 1.05 + 0.001,
   }
   else return(list(infor=z$infor,rates=z$rates,n.iter=z$n.iter))
 }
-
-

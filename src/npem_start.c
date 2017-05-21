@@ -61,8 +61,8 @@
  *      len_plate   len_plate{p} = number of wells used on plate p
  *                  (vector of length n_plates) = sum_i n{pi}
  *
- *      cv          common coefficient of variation (= SD/ave), used in 
- *                  randomizing the starting point; if cv=0, don't 
+ *      cv          common coefficient of variation (= SD/ave), used in
+ *                  randomizing the starting point; if cv=0, don't
  *                  randomize
  *
  *      n_sd        number of SDs to use as cut-off
@@ -217,11 +217,11 @@ void piksrt(int n, double *arr)
  *
  ****************************************/
 
-int get_seed(void) 
+int get_seed(void)
 {
   time_t d1, d2;
   struct tm *e;
-  
+
   d2 = time(&d1);
   e = localtime(&d1);
   return(-(((e->tm_mday*24 + e->tm_sec)*60 + e->tm_min)*60 + e->tm_hour));
@@ -229,15 +229,15 @@ int get_seed(void)
 
 
 /**********************************************************************
- * 
+ *
  * gasdev
  *
- *   generates a pseudorandom normal(0,1) deviate  
+ *   generates a pseudorandom normal(0,1) deviate
  *
  *   "idum" should be a int negative seed on first use
  *
  *   taken from numerical recipes in c
- * 
+ *
  **********************************************************************/
 
 double gasdev(int *idum)
@@ -246,7 +246,7 @@ double gasdev(int *idum)
   static double gset;
   double fac,r,v1,v2;
   double ran1();
-  
+
   if  (iset == 0) {
     do {
       v1=2.0*ran1(idum)-1.0;
@@ -266,13 +266,13 @@ double gasdev(int *idum)
 
 
 /**********************************************************************
- * 
+ *
  * ran1
- *  
+ *
  *   generates a pseudorandom number uniformly from (0,1)
- *   
+ *
  *   "idum" should be a int *negative* seed on first use
- * 
+ *
  *   taken from numerical recipes in c
  *
  **********************************************************************/
@@ -296,7 +296,7 @@ double ran1(int *idum)
   double temp;
   static int iff=0;
   int j;
-  
+
   if (*idum < 0 || iff == 0) {
     iff=1;
     ix1=(IC1-(*idum)) % M1;
@@ -332,4 +332,3 @@ double ran1(int *idum)
 #undef M3
 #undef IA3
 #undef IC3
-
