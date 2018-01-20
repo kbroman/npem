@@ -1,6 +1,6 @@
 ## R/npem
 
-[![Build Status](https://travis-ci.org/kbroman/npem.png?branch=master)](https://travis-ci.org/kbroman/npem)
+[![Build Status](https://travis-ci.org/kbroman/npem.svg?branch=master)](https://travis-ci.org/kbroman/npem)
 
 [Karl W Broman](http://kbroman.org)
 
