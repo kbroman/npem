@@ -1,0 +1,21 @@
+citHeader("To cite R/npem in publications use:")
+
+citEntry(entry="article",
+         title = "Estimation of antigen-responsive {T} cell frequencies in {PBMC} from human subjects",
+         author = personList(person("Karl", "Broman"),
+                             person("Terry", "Speed"),
+                             person("Michael", "Tigges")),
+         journal = "J. Immunol. Meth.",
+         year = 1996,
+         volume = 198,
+         pages = "119-132",
+         doi = "10.1016/S0022-1759(96)00136-6",
+         url = "https://doi.org/10.1016/S0022-1759(96)00136-6",
+         eprint = "https://www.biostat.wisc.edu/~kbroman/publications/jim.pdf",
+
+         textVersion =
+             paste("Broman et al. (1996) Estimation of antigen-responsive",
+                   "T cell frequencies in PBMC from human subjects.",
+                   "J Immunol Meth 198:119-132",
+                   "doi:10.1016/S0022-1759(96)00136-6")
+         )
