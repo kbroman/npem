@@ -6,18 +6,18 @@
 #' proliferation assay.
 #'
 #' Calculations are performed in a C routine.  It is important to first run
-#' \code{\link{npem.em}} with a very small value for \code{tol}, such as
+#' [npem.em()] with a very small value for `tol`, such as
 #' \eqn{10^{-13}}{10^-13}.
 #'
 #' @param y Vector of transformed scintillation counts, in lexicographical
 #' order (plate by plate and group by group within a plate.)
-#' @param npem.em.out Output from the function \code{\link{npem.em}}.
+#' @param npem.em.out Output from the function [npem.em()].
 #' @param cells Number of cells per well.  The \eqn{\lambda}{lambda}'s will be
 #' rescaled to give response per \eqn{10^6} cells.  This may be either a single
 #' number (if all wells have the same number of cells, or \eqn{10^6} if one
 #' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
-#' plate (vector of length \code{n.plates}, or a value for each well (a vector
-#' of the same length as \code{y}).
+#' plate (vector of length `n.plates`, or a value for each well (a vector
+#' of the same length as `y`).
 #' @param start Starting estimates, some small distance away from the MLE.  A
 #' vector of the form (\eqn{\lambda}{lambda}'s, (a, b, \eqn{\sigma}{sigma})'s).
 #' @param n Vector giving the number of wells within each group.  This may have
@@ -43,11 +43,11 @@
 #' matrix ("DM" in Meng and Rubin's notation).} \item{n.iter}{Number of
 #' iterations performed in calculating the rate matrix.} \item{var}{The
 #' estimated variance-covariance matrix.} \item{se}{The estimated standard
-#' errors.  (The square root of the diagnol of \code{var}.)}
+#' errors.  (The square root of the diagnol of `var`.)}
 #'
 #' @author Karl W Broman, \email{broman@@wisc.edu}
 #'
-#' @seealso \code{\link{npem.em}}
+#' @seealso [npem.em()]
 #'
 #' @references Broman et al. (1996) Estimation of antigen-responsive T cell
 #' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132 \cr

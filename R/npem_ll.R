@@ -18,8 +18,8 @@
 #' rescaled to give response per \eqn{10^6} cells.  This may be either a single
 #' number (if all wells have the same number of cells, or \eqn{10^6} if one
 #' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
-#' plate (vector of length \code{n.plates}, or a value for each well (a vector
-#' of the same length as \code{y}).
+#' plate (vector of length `n.plates`, or a value for each well (a vector
+#' of the same length as `y`).
 #' @param n Vector giving the number of wells within each group.  This may have
 #' length either n.groups (if all plates have the same number of wells per
 #' group) or n.groups*n.plates.
@@ -27,11 +27,11 @@
 #' @param maxk Maximum k value in sum calculating \eqn{E(k | y)}.
 #'
 #' @return \item{loglik}{The log likelihood function calculated at the point
-#' \code{ests} in the parameter space.}
+#' `ests` in the parameter space.}
 #'
 #' @author Karl W Broman, \email{broman@@wisc.edu}
 #'
-#' @seealso \code{\link{npem.em}}
+#' @seealso [npem.em()]
 #'
 #' @references Broman et al. (1996) Estimation of antigen-responsive T cell
 #' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132

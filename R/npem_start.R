@@ -11,15 +11,15 @@
 #' rescaled to give response per \eqn{10^6} cells.  This may be either a single
 #' number (if all wells have the same number of cells, or \eqn{10^6} if one
 #' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
-#' plate (vector of length \code{n.plates}, or a value for each well (a vector
-#' of the same length as \code{y}).
+#' plate (vector of length `n.plates`, or a value for each well (a vector
+#' of the same length as `y`).
 #' @param n Vector giving the number of wells within each group.  This may have
 #' length either n.groups (if all plates have the same number of wells per
 #' group) or n.groups*n.plates.
 #' @param n.plates The number of plates in the data.
 #' @param n.groups The number of groups. (This is needed here but not
-#' elsewhere, because usually I figure it out from \code{n.plates} and the
-#' length of the argument \code{ests}.)
+#' elsewhere, because usually I figure it out from `n.plates` and the
+#' length of the argument `ests`.)
 #' @param n.sd Number of SDs above the mean to use as a cutoff
 #' @param cv Coefficient of variation (= SD/ave) used in randomizing the
 #' starting point; use cv=0 to avoid randomization.
@@ -33,7 +33,7 @@
 #'
 #' @author Karl W Broman, \email{broman@@wisc.edu}
 #'
-#' @seealso \code{\link{npem.em}}
+#' @seealso [npem.em()]
 #'
 #' @references Broman et al. (1996) Estimation of antigen-responsive T cell
 #' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132

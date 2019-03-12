@@ -18,8 +18,8 @@
 #' rescaled to give response per \eqn{10^6} cells.  This may be either a single
 #' number (if all wells have the same number of cells, or \eqn{10^6} if one
 #' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
-#' plate (vector of length \code{n.plates}, or a value for each well (a vector
-#' of the same length as \code{y}).
+#' plate (vector of length `n.plates`, or a value for each well (a vector
+#' of the same length as `y`).
 #' @param n Vector giving the number of wells within each group.  This may have
 #' length either n.groups (if all plates have the same number of wells per
 #' group) or n.groups*n.plates.
@@ -35,15 +35,15 @@
 #' iteration.
 #'
 #' @return \item{ests}{The estimated parameters in same form as the input
-#' argument \code{ests}.} \item{k}{The estimated number of responding cells per
+#' argument `ests`.} \item{k}{The estimated number of responding cells per
 #' well, \eqn{E(k|y)}.} \item{ksq}{\eqn{E(k^2|y)}} \item{loglik}{The value of
-#' the log likelihood at \code{ests}.} \item{n.iter}{Number of iterations
+#' the log likelihood at `ests`.} \item{n.iter}{Number of iterations
 #' performed.}
 #'
 #' @author Karl W Broman, \email{broman@@wisc.edu}
 #'
-#' @seealso \code{\link{npem.sem}}, \code{\link{npem.start}},
-#' \code{\link{npsim}}, \code{\link{npem.ll}}
+#' @seealso [npem.sem()], [npem.start()],
+#' [npsim()], [npem.ll()]
 #'
 #' @references Broman et al. (1996) Estimation of antigen-responsive T cell
 #' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132 \cr
