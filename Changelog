@@ -1,9 +1,14 @@
 Revision history for the R/npem package
 ----------------------------------------------------------------------
-copyright (c) 2000-2011, Karl W Broman
+copyright (c) 2000-2019, Karl W Broman
 Licensed under the GNU General Public License version 2 (June, 1991)
 https://github.com/kbroman/npem
 ----------------------------------------------------------------------
+
+Version 0.51-5, 2019-03-12:
+
+  Convert documentation to roxygen2.
+
 
 Version 0.51-4, 2017-05-21:
 
