@@ -13,3 +13,4 @@ License: GPL-3
 URL: https://github.com/kbroman/npem
 BugReports: https://github.com/kbroman/npem/issues
 Encoding: UTF-8
+RoxygenNote: 6.1.1

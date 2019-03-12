@@ -1,53 +1,95 @@
-######################################################################
-#
 # npem
-# version 0.50
-# 22 August 2000
-#
-# Karl W Broman
-#
-# npem_em.R : npem.em, npem.ll, npsim
-#
-# July, 1995 (revised 10/11/95, 2/3/96, 8/21/2000, 6/22/2003)
-#
-######################################################################
-######################################################################
-#
-#  npem.em
-#
-#  This function is the main S function to perform the EM algorithm
-#  for the normal/Poisson model for a full NPEM.  It calls the C
-#  function npem_em.  See the file "npem_em.h" for further details on
-#  the model.
-#
-#       y = transformed scintillation counts, as a vector
-#
-#       ests = initial estimates (lambda's, (a, b, sigma)'s)
-#
-#       cells = cells/well, either of length "n.plates" or
-#               of the same length as y, or of length 1
-#
-#       n = (n_i) = number of y's in the lambda groups
-#          or = (n_{pi}) = number of y's in the lambda groups
-#                          for all plates
-#
-#       n.plates = number of plates
-#
-#       use.order.constraint = T if you want lambda_1 <= lambda_i
-#
-#       maxit = maximum number of iterations
-#
-#       tol = tolerance value to determine when to stop the algorithm
-#
-#       maxk = maximum k value in sum in calculating E(k_ij|y_ij) in
-#              the E-step
-#
-#       prnt = 0 : don't print anything out
-#            = 1 : print the log likelihood at each iteration
-#            = 2 : print the est's and the log lik. at each iteration
-#
-######################################################################
-
+#' Fit the normal-Poisson model to data on a cell proliferation assay
+#'
+#' Uses a version of the EM algorithm to fit the normal-Poisson mixture model
+#' to data on a cell proliferation assay.
+#'
+#' Calculations are performed in a C routine.  [I should describe the
+#' normal-Poisson mixture model here.]
+#'
+#' @param y Vector of transformed scintillation counts, in lexicographical
+#' order (plate by plate and group by group within a plate.)
+#' @param ests Initial parameter estimates, as a vector of length n.groups +
+#' 3*n.plates, of the form (\eqn{\lambda}{lambda}'s, (a, b,
+#' \eqn{\sigma}{sigma})'s), where \eqn{\lambda}{lambda} is the average number
+#' of responding cells per \eqn{10^6} cells for a group, and (a, b,
+#' \eqn{\sigma}{sigma}) are the plate-specific parameters.
+#' @param cells Number of cells per well.  The \eqn{\lambda}{lambda}'s will be
+#' rescaled to give response per \eqn{10^6} cells.  This may be either a single
+#' number (if all wells have the same number of cells, or \eqn{10^6} if one
+#' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
+#' plate (vector of length \code{n.plates}, or a value for each well (a vector
+#' of the same length as \code{y}).
+#' @param n Vector giving the number of wells within each group.  This may have
+#' length either n.groups (if all plates have the same number of wells per
+#' group) or n.groups*n.plates.
+#' @param n.plates The number of plates in the data.
+#' @param use.order.constraint If TRUE, force the constraint \eqn{\lambda_0 \le
+#' \lambda_i}{lambda[0] <= lambda[i]} for all \eqn{i \ge 1}{i >= 1}; otherwise,
+#' no constraints are applied.
+#' @param maxit Maximum number of EM iterations to perform.
+#' @param tol Tolerance to determine when to stop the EM algorithm.
+#' @param maxk Maximum k value in sum calculating E(k | y).
+#' @param prnt If 0, don't print anything; if 1, print the log likelihood at
+#' each iteration; and if 2, print the est's and the log lik. at each
+#' iteration.
+#'
+#' @return \item{ests}{The estimated parameters in same form as the input
+#' argument \code{ests}.} \item{k}{The estimated number of responding cells per
+#' well, \eqn{E(k|y)}.} \item{ksq}{\eqn{E(k^2|y)}} \item{loglik}{The value of
+#' the log likelihood at \code{ests}.} \item{n.iter}{Number of iterations
+#' performed.}
+#'
+#' @author Karl W Broman, \email{broman@@wisc.edu}
+#'
+#' @seealso \code{\link{npem.sem}}, \code{\link{npem.start}},
+#' \code{\link{npsim}}, \code{\link{npem.ll}}
+#'
+#' @references Broman et al. (1996) Estimation of antigen-responsive T cell
+#' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132 \cr
+#' Dempster et al. (1977) Maximum likelihood estimation from incomplete data
+#' via the EM algorithm.  J Roy Statist Soc Ser B 39:1-38
+#'
+#' @keywords models
+#' @export
+#' @useDynLib npem, .registration=TRUE
+#'
+#' @examples
+#'   # get access to an example data set
+#'   data(p713)
+#'
+#'   # analysis of plate3
+#'     # get starting values
+#'   start.pl3 <- npem.start(p713$counts[[3]],n=p713$n)
+#'     # get estimates
+#'   out.pl3 <- npem.em(p713$counts[[3]],start.pl3,n=p713$n)
+#'     # look at log likelihood at starting and ending points
+#'   npem.ll(p713$counts[[3]],start.pl3,n=p713$n)
+#'   npem.ll(p713$counts[[3]],out.pl3$ests,n=p713$n)
+#'     # repeat with great precision, starting at previous endpoint
+#'   out.pl3 <- npem.em(p713$counts[[3]],out.pl3$ests,
+#'                      n=p713$n,tol=1e-13)
+#'     # run SEM algorithm to get standard errors
+#'   out.sem.pl3 <- npem.sem(p713$counts[[3]],out.pl3,n=p713$n)
+#'   round(out.pl3$ests,3)
+#'   round(out.sem.pl3$se,3)
+#'
+#'   # repeat the above for the pair, plates 3 and 4
+#'     # get starting values
+#'   start.pl34 <- npem.start(unlist(p713$counts[3:4]),n=p713$n,n.plates=2)
+#'     # get estimates
+#'   out.pl34 <- npem.em(unlist(p713$counts[3:4]),start.pl34,n=p713$n,n.plates=2)
+#'     # look at log likelihood at starting and ending points
+#'   npem.ll(unlist(p713$counts[3:4]),start.pl34,n=p713$n,n.plates=2)
+#'   npem.ll(unlist(p713$counts[3:4]),out.pl34$ests,n=p713$n,n.plates=2)
+#'     # repeat with great precision, starting at previous endpoint
+#'   out.pl34 <- npem.em(unlist(p713$counts[3:4]),out.pl34$ests,
+#'                      n=p713$n,tol=1e-13,n.plates=2)
+#'     # run SEM algorithm to get standard errors
+#'   out.sem.pl34 <- npem.sem(unlist(p713$counts[3:4]),out.pl34,n=p713$n,n.plates=2)
+#'   round(out.pl34$ests,3)
+#'   round(out.sem.pl34$se,3)
+#'
 npem.em <-
 function(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1,
          use.order.constraint=TRUE, maxit=2000, tol=1e-6, maxk=20, prnt=0)

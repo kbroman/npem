@@ -1,11 +1,52 @@
-######################################################################
-#
 # npem.ll
-#
-# get log likelihood
-#
-######################################################################
-
+#' Calculate the log likelihood for the normal-Poisson model
+#'
+#' Calculates the log likelihood at a single point in the parameter space, for
+#' the normal-Poisson mixture model with data on a cell proliferation assay.
+#'
+#' Calculations are performed in a C routine.
+#'
+#' @param y Vector of transformed scintillation counts, in lexicographical
+#' order (plate by plate and group by group within a plate.)
+#' @param ests Value of the parameters at which to calculate the log
+#' likelihood, as a vector of length n.groups + 3*n.plates, of the form
+#' (\eqn{\lambda}{lambda}'s, (a, b, \eqn{\sigma}{sigma})'s), where
+#' \eqn{\lambda}{lambda} is the average number of responding cells per
+#' \eqn{10^6} cells for a group, and (a, b, \eqn{\sigma}{sigma}) are the
+#' plate-specific parameters.
+#' @param cells Number of cells per well.  The \eqn{\lambda}{lambda}'s will be
+#' rescaled to give response per \eqn{10^6} cells.  This may be either a single
+#' number (if all wells have the same number of cells, or \eqn{10^6} if one
+#' wishes the \eqn{\lambda}{lambda}'s to not be rescaled), a value for each
+#' plate (vector of length \code{n.plates}, or a value for each well (a vector
+#' of the same length as \code{y}).
+#' @param n Vector giving the number of wells within each group.  This may have
+#' length either n.groups (if all plates have the same number of wells per
+#' group) or n.groups*n.plates.
+#' @param n.plates The number of plates in the data.
+#' @param maxk Maximum k value in sum calculating \eqn{E(k | y)}.
+#'
+#' @return \item{loglik}{The log likelihood function calculated at the point
+#' \code{ests} in the parameter space.}
+#'
+#' @author Karl W Broman, \email{broman@@wisc.edu}
+#'
+#' @seealso \code{\link{npem.em}}
+#'
+#' @references Broman et al. (1996) Estimation of antigen-responsive T cell
+#' frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132
+#'
+#' @keywords models
+#' @export
+#' @useDynLib npem, .registration=TRUE
+#'
+#' @examples
+#'   data(p713)
+#'   start.pl3 <- npem.start(p713$counts[[3]],n=p713$n)
+#'   out.pl3 <- npem.em(p713$counts[[3]],start.pl3,n=p713$n)
+#'   npem.ll(p713$counts[[3]],start.pl3,n=p713$n)
+#'   npem.ll(p713$counts[[3]],out.pl3$ests,n=p713$n)
+#'
 npem.ll <-
 function(y, ests, cells=10^6, n=c(24, 24, 24, 22), n.plates=1, maxk=30)
 {
