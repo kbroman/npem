@@ -19,13 +19,13 @@ p713.2
 \description{
 This is data for a limiting dilution assay for a single patient, composed of
 5 pairs of plates at 5 different cell concentrations.  The data is from the
-same subject (at the same time) as \code{\link{p713}}.
+same subject (at the same time) as \code{\link[=p713]{p713()}}.
 }
 \seealso{
-\code{\link{p713}}, \code{\link{p711}}, \code{\link{npem.em}}
+\code{\link[=p713]{p713()}}, \code{\link[=p711]{p711()}}, \code{\link[=npem.em]{npem.em()}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
+Karl W Broman, \email{broman@wisc.edu} \cr
 \url{https://github.com/kbroman/npem}
 }
 \keyword{datasets}

@@ -21,10 +21,10 @@ This is data for a limiting dilution assay for a single patient, composed of
 6 pairs of plates at 6 different cell concentrations.
 }
 \seealso{
-\code{\link{p713}}, \code{\link{p713.2}}, \code{\link{npem.em}}
+\code{\link[=p713]{p713()}}, \code{\link[=p713.2]{p713.2()}}, \code{\link[=npem.em]{npem.em()}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu} \cr
+Karl W Broman, \email{broman@wisc.edu} \cr
 \url{https://github.com/kbroman/npem}
 }
 \keyword{datasets}

@@ -10,7 +10,7 @@
 #' \cr `cells` \tab A vector of length 12, giving the estimated number of
 #' cells per well for each of the 12 plates. \cr `n` \tab Vector of length
 #' 4, giving the number of wells per group, which is the same for each plate. }
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu} \cr
+#' @author Karl W Broman, \email{broman@@wisc.edu} \cr
 #' <https://github.com/kbroman/npem>
 #' @seealso [p713()], [p713.2()], [npem.em()]
 #' @source Michael Tigges, Chiron Biocine
