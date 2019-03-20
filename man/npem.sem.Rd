@@ -13,7 +13,7 @@ npem.sem(y, npem.em.out, cells = 10^6, start = npem.em.out$ests * 1.05
 \item{y}{Vector of transformed scintillation counts, in lexicographical
 order (plate by plate and group by group within a plate.)}
 
-\item{npem.em.out}{Output from the function \code{\link{npem.em}}.}
+\item{npem.em.out}{Output from the function \code{\link[=npem.em]{npem.em()}}.}
 
 \item{cells}{Number of cells per well.  The \eqn{\lambda}{lambda}'s will be
 rescaled to give response per \eqn{10^6} cells.  This may be either a single
@@ -66,7 +66,7 @@ proliferation assay.
 }
 \details{
 Calculations are performed in a C routine.  It is important to first run
-\code{\link{npem.em}} with a very small value for \code{tol}, such as
+\code{\link[=npem.em]{npem.em()}} with a very small value for \code{tol}, such as
 \eqn{10^{-13}}{10^-13}.
 }
 \examples{
@@ -85,7 +85,7 @@ via the EM algorithm.  J Roy Statist Soc Ser B 39:1-38 \cr Meng and Rubin
 algorithm.  J Am Statist Asso 86:899-909
 }
 \seealso{
-\code{\link{npem.em}}
+\code{\link[=npem.em]{npem.em()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

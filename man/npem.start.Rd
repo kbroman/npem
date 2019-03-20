@@ -45,7 +45,7 @@ plate-specific parameters.}
 Obtains crude starting values, needed for the EM algorithm.
 }
 \details{
-[I should describe the algorithm in more detail here.]
+\link{I should describe the algorithm in more detail here.}
 }
 \examples{
   data(p713)
@@ -58,7 +58,7 @@ Broman et al. (1996) Estimation of antigen-responsive T cell
 frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132
 }
 \seealso{
-\code{\link{npem.em}}
+\code{\link[=npem.em]{npem.em()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

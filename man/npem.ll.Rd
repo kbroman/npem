@@ -57,7 +57,7 @@ Broman et al. (1996) Estimation of antigen-responsive T cell
 frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132
 }
 \seealso{
-\code{\link{npem.em}}
+\code{\link[=npem.em]{npem.em()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

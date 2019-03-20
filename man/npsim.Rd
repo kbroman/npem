@@ -15,9 +15,9 @@ npsim(ests, n = c(24, 24, 24, 22))
 }
 \value{
 \item{k}{The simulated numbers of responding cells per well, useful
-for comparison with those estimated from \code{\link{npem.em}}.}
+for comparison with those estimated from \code{\link[=npem.em]{npem.em()}}.}
 \item{y}{The simulated transformed scintillation counts, to be used as input
-for \code{\link{npem.em}}.}
+for \code{\link[=npem.em]{npem.em()}}.}
 }
 \description{
 Simulate data for a single plate using the normal-Poisson mixture model.
@@ -40,7 +40,7 @@ Broman et al. (1996) Estimation of antigen-responsive T cell
 frequencies in PBMC from human subjects.  J Immunol Meth 198:119-132
 }
 \seealso{
-\code{\link{npem.em}}
+\code{\link[=npem.em]{npem.em()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}
