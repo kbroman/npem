@@ -45,7 +45,7 @@ plate-specific parameters.}
 Obtains crude starting values, needed for the EM algorithm.
 }
 \details{
-\link{I should describe the algorithm in more detail here.}
+[I should describe the algorithm in more detail here.]
 }
 \examples{
   data(p713)

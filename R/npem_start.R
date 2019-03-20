@@ -3,7 +3,7 @@
 #'
 #' Obtains crude starting values, needed for the EM algorithm.
 #'
-#' [I should describe the algorithm in more detail here.]
+#' \[I should describe the algorithm in more detail here.\]
 #'
 #' @param y Vector of transformed scintillation counts, in lexicographical
 #' order (plate by plate and group by group within a plate.)
