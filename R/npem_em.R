@@ -4,8 +4,8 @@
 #' Uses a version of the EM algorithm to fit the normal-Poisson mixture model
 #' to data on a cell proliferation assay.
 #'
-#' Calculations are performed in a C routine.  [I should describe the
-#' normal-Poisson mixture model here.]
+#' Calculations are performed in a C routine.  \[I should describe the
+#' normal-Poisson mixture model here.\]
 #'
 #' @param y Vector of transformed scintillation counts, in lexicographical
 #' order (plate by plate and group by group within a plate.)

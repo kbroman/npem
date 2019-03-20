@@ -104,8 +104,8 @@ Dempster et al. (1977) Maximum likelihood estimation from incomplete data
 via the EM algorithm.  J Roy Statist Soc Ser B 39:1-38
 }
 \seealso{
-\code{\link{npem.sem}}, \code{\link{npem.start}},
-\code{\link{npsim}}, \code{\link{npem.ll}}
+\code{\link[=npem.sem]{npem.sem()}}, \code{\link[=npem.start]{npem.start()}},
+\code{\link[=npsim]{npsim()}}, \code{\link[=npem.ll]{npem.ll()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}
