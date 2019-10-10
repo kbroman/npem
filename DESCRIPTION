@@ -2,8 +2,11 @@ Package: npem
 Version: 0.51-5
 Date: 2019-03-20
 Title: Analysis of Cell Proliferation Assays
-Author: Karl W Broman <broman@wisc.edu>
+Author: Karl W Broman [aut, cre] (<https://orcid.org/0000-0002-4914-6671>)
 Maintainer: Karl W Broman <broman@wisc.edu>
+Authors@R: person("Karl W", "Broman", role=c("aut", "cre"),
+                  email="broman@wisc.edu",
+                  comment=c(ORCID = "0000-0002-4914-6671"))
 Description: Analysis of cell proliferation assays with a
     normal-Poisson mixture model.
     Broman et al. (1996) <doi:10.1016/S0022-1759(96)00136-6>.
