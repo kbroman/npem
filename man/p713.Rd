@@ -4,12 +4,14 @@
 \name{p713}
 \alias{p713}
 \title{Data for a limiting dilution assay}
-\format{The data is a list with three components: \tabular{ll}{
+\format{
+The data is a list with three components: \tabular{ll}{
 \code{counts} \tab A list of length 12, each component of which is a vector
 giving the square-root-transformed scintillation counts for a single plate.
 \cr \code{cells} \tab A vector of length 12, giving the estimated number of
 cells per well for each of the 12 plates. \cr \code{n} \tab Vector of length
-4, giving the number of wells per group, which is the same for each plate. }}
+4, giving the number of wells per group, which is the same for each plate. }
+}
 \source{
 Michael Tigges, Chiron Biocine
 }

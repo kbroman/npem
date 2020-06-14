@@ -4,8 +4,7 @@
 \alias{npem.ll}
 \title{Calculate the log likelihood for the normal-Poisson model}
 \usage{
-npem.ll(y, ests, cells = 10^6, n = c(24, 24, 24, 22), n.plates = 1,
-  maxk = 30)
+npem.ll(y, ests, cells = 10^6, n = c(24, 24, 24, 22), n.plates = 1, maxk = 30)
 }
 \arguments{
 \item{y}{Vector of transformed scintillation counts, in lexicographical

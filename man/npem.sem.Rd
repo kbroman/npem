@@ -4,10 +4,21 @@
 \alias{npem.sem}
 \title{Obtain standard errors for the estimates from npem.em}
 \usage{
-npem.sem(y, npem.em.out, cells = 10^6, start = npem.em.out$ests * 1.05
-  + 0.001, n = c(24, 24, 24, 22), n.plates = 1,
-  use.order.constraint = TRUE, all.se = TRUE, tol = 0.000001,
-  maxk = 20, prnt = 0, do.var = TRUE, maxit = 1000)
+npem.sem(
+  y,
+  npem.em.out,
+  cells = 10^6,
+  start = npem.em.out$ests * 1.05 + 0.001,
+  n = c(24, 24, 24, 22),
+  n.plates = 1,
+  use.order.constraint = TRUE,
+  all.se = TRUE,
+  tol = 0.000001,
+  maxk = 20,
+  prnt = 0,
+  do.var = TRUE,
+  maxit = 1000
+)
 }
 \arguments{
 \item{y}{Vector of transformed scintillation counts, in lexicographical

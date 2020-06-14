@@ -4,9 +4,18 @@
 \alias{npem.em}
 \title{Fit the normal-Poisson model to data on a cell proliferation assay}
 \usage{
-npem.em(y, ests, cells = 10^6, n = c(24, 24, 24, 22), n.plates = 1,
-  use.order.constraint = TRUE, maxit = 2000, tol = 0.000001,
-  maxk = 20, prnt = 0)
+npem.em(
+  y,
+  ests,
+  cells = 10^6,
+  n = c(24, 24, 24, 22),
+  n.plates = 1,
+  use.order.constraint = TRUE,
+  maxit = 2000,
+  tol = 0.000001,
+  maxk = 20,
+  prnt = 0
+)
 }
 \arguments{
 \item{y}{Vector of transformed scintillation counts, in lexicographical

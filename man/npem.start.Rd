@@ -4,8 +4,15 @@
 \alias{npem.start}
 \title{Obtain approximate starting values for npem.em}
 \usage{
-npem.start(y, cells = 10^6, n = c(24, 24, 24, 22), n.plates = 1,
-  n.groups = 4, n.sd = 2, cv = 0.33)
+npem.start(
+  y,
+  cells = 10^6,
+  n = c(24, 24, 24, 22),
+  n.plates = 1,
+  n.groups = 4,
+  n.sd = 2,
+  cv = 0.33
+)
 }
 \arguments{
 \item{y}{Vector of transformed scintillation counts, in lexicographical
