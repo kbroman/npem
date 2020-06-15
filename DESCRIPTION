@@ -1,6 +1,6 @@
 Package: npem
-Version: 0.51-5
-Date: 2019-03-20
+Version: 0.51-6
+Date: 2019-06-15
 Title: Analysis of Cell Proliferation Assays
 Author: Karl W Broman [aut, cre] (<https://orcid.org/0000-0002-4914-6671>)
 Maintainer: Karl W Broman <broman@wisc.edu>
@@ -15,6 +15,7 @@ Imports: stats
 License: GPL-3
 URL: https://github.com/kbroman/npem
 BugReports: https://github.com/kbroman/npem/issues
+LazyData: true
 Encoding: UTF-8
 RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE)
