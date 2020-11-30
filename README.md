@@ -1,6 +1,6 @@
 ## R/npem
 
-[![Build Status](https://travis-ci.org/kbroman/npem.svg?branch=master)](https://travis-ci.org/kbroman/npem)
+[![R build status](https://github.com/kbroman/npem/workflows/R-CMD-check/badge.svg)](https://github.com/kbroman/npem/actions)
 
 [Karl W Broman](https://kbroman.org)
 
