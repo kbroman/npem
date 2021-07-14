@@ -2,13 +2,13 @@
  *
  * npem
  * version 0.50
- * 22 June 2003
+ * 2021-07-14
  *
  * Karl W Broman
  *
  * npem_start.c : npem_start, piksrt
  *
- * 3/13/96 (revised 4/25/96, 8/20/2000, 6/22/2003)
+ * 3/13/96 (revised 4/25/96, 8/20/2000, 6/22/2003, 2021-07-14)
  *
  * See the file "npem.h" for a thorough description.
  *
@@ -130,7 +130,7 @@ void npem_start(double *y, int *n_plates, double *c, int *n_groups,
   }
   /* sort lambdas within a group, then calculate median */
   for(i=0, q=0; i< *n_groups; i++, q+= *n_plates) {
-    piksrt(*n_plates, lam + q);
+    R_rsort(lam + q, *n_plates);
     half = (*n_plates/2);
     if(fabs((double)(half*2 - *n_plates)) < 1e-6)
       ests[i] = (lam[q + half-1] + lam[q + half])/2.0;
@@ -141,7 +141,7 @@ void npem_start(double *y, int *n_plates, double *c, int *n_groups,
   /* place [mean(y in i,p) - a_p]/lam_i in lams */
   for(p=0, r=0, threep=*n_groups; p< *n_plates;
       p++, r+= *n_groups, threep += 3) {
-    piksrt(n[r], y+ns[r]);
+    R_rsort(y+ns[r], n[r]);
     half = (n[r]/2);
     if(fabs((double)(half*2 - n[r])) < 1e-6)
       ests[threep] = (y[ns[r] + half-1] + y[ns[r] + half])/2.0;
@@ -149,7 +149,7 @@ void npem_start(double *y, int *n_plates, double *c, int *n_groups,
 
     for(i=0, q=0; i< *n_groups; i++, q+= *n_plates)
       lam[i +  r] = (m[q + p] - ests[threep]) / ests[i];
-    piksrt(*n_groups, lam + r);
+    R_rsort(lam + r, *n_groups);
     half=(*n_groups/2);
     if(fabs((double)(half*2 - *n_groups)) < 1e-6)
       ests[threep+1] = (lam[r + half-1] +
@@ -161,174 +161,14 @@ void npem_start(double *y, int *n_plates, double *c, int *n_groups,
   }
 
   if(fabs(*cv) > 1e-6) { /* randomize the starting point */
-    seed = get_seed();
+    GetRNGstate();
+
     for(i=0; i < *n_groups + 3 * *n_plates; i++) {
-      ests[i] += gasdev(&seed)*fabs(ests[i])*(*cv);
+      ests[i] += norm_rand()*fabs(ests[i])*(*cv);
       if(ests[i] < 0) ests[i] *= -1.0; /* none of the estimates should be negative */
     }
+
+    PutRNGstate();
   }
 
 }
-
-
-
-
-/**********************************************************************
- *
- * piksrt
- *
- * This function was take from Numerical Recipes in C (Sec 8.1:
- * straight insertion and Shell's method).  It should suffice for my
- * very simple sorting needs.
- *
- * Input:
- *
- *     n = length of vector to sort
- *
- *   arr = pointer to array to be sorted into ascending order;
- *         on output, it contains the sorted array
- *
- **********************************************************************/
-
-void piksrt(int n, double *arr)
-{
-  int i,j;
-  double a;
-
-  for(j=1; j<n; j++) {        /* pick out each element in turn */
-    a=arr[j];
-    i=j-1;
-    while(i>=0 && arr[i]>a) {   /* look for the place to insert it */
-      arr[i+1]=arr[i];
-      i--;
-    }
-    arr[i+1]=a;                /* insert it */
-  }
-}
-
-
-
-/****************************************
- *
- * get_seed
- *
- * returns a negative int, obtained from
- * the system clock
- *
- ****************************************/
-
-int get_seed(void)
-{
-  time_t d1, d2;
-  struct tm *e;
-
-  d2 = time(&d1);
-  e = localtime(&d1);
-  return(-(((e->tm_mday*24 + e->tm_sec)*60 + e->tm_min)*60 + e->tm_hour));
-}
-
-
-/**********************************************************************
- *
- * gasdev
- *
- *   generates a pseudorandom normal(0,1) deviate
- *
- *   "idum" should be a int negative seed on first use
- *
- *   taken from numerical recipes in c
- *
- **********************************************************************/
-
-double gasdev(int *idum)
-{
-  static int iset=0;
-  static double gset;
-  double fac,r,v1,v2;
-  double ran1();
-
-  if  (iset == 0) {
-    do {
-      v1=2.0*ran1(idum)-1.0;
-      v2=2.0*ran1(idum)-1.0;
-      r=v1*v1+v2*v2;
-    } while (r >= 1.0);
-    fac=sqrt(-2.0*log(r)/r);
-    gset=v1*fac;
-    iset=1;
-    return v2*fac;
-  } else {
-    iset=0;
-    return gset;
-  }
-}
-
-
-
-/**********************************************************************
- *
- * ran1
- *
- *   generates a pseudorandom number uniformly from (0,1)
- *
- *   "idum" should be a int *negative* seed on first use
- *
- *   taken from numerical recipes in c
- *
- **********************************************************************/
-
-#define M1 259200
-#define IA1 7141
-#define IC1 54773
-#define RM1 (1.0/M1)
-#define M2 134456
-#define IA2 8121
-#define IC2 28411
-#define RM2 (1.0/M2)
-#define M3 243000
-#define IA3 4561
-#define IC3 51349
-
-double ran1(int *idum)
-{
-  static int ix1,ix2,ix3;
-  static double r[98];
-  double temp;
-  static int iff=0;
-  int j;
-
-  if (*idum < 0 || iff == 0) {
-    iff=1;
-    ix1=(IC1-(*idum)) % M1;
-    ix1=(IA1*ix1+IC1) % M1;
-    ix2=ix1 % M2;
-    ix1=(IA1*ix1+IC1) % M1;
-    ix3=ix1 % M3;
-    for (j=1;j<=97;j++) {
-      ix1=(IA1*ix1+IC1) % M1;
-      ix2=(IA2*ix2+IC2) % M2;
-      r[j]=(ix1+ix2*RM2)*RM1;
-    }
-    *idum=1;
-  }
-  ix1=(IA1*ix1+IC1) % M1;
-  ix2=(IA2*ix2+IC2) % M2;
-  ix3=(IA3*ix3+IC3) % M3;
-  j=1 + ((97*ix3)/M3);
-  if (j > 97 || j < 1) Rprintf("RAN1: This cannot happen.");
-  temp=r[j];
-  r[j]=(ix1+ix2*RM2)*RM1;
-  return temp;
-}
-
-#undef M1
-#undef IA1
-#undef IC1
-#undef RM1
-#undef M2
-#undef IA2
-#undef IC2
-#undef RM2
-#undef M3
-#undef IA3
-#undef IC3

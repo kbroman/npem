@@ -2,7 +2,7 @@
  *
  * npem
  * version 0.50
- * 22 August 2000
+ * 2021-07-14
  *
  * Karl W Broman
  *
@@ -10,7 +10,7 @@
  *                            npem_matrix.c)
  *
  * July, 1995 (revised 10/11/95, 2/3/96, 3/12/96, 3/13/96, 4/26/96,
- *                      4/30/96, 5/3/96, 8/20/2000)
+ *                      4/30/96, 5/3/96, 8/20/2000, 2021-07-14)
  *
  * These functions are written to perform the EM and SEM algorithms
  * on a limiting dilution assay (or even a single assay).  The data
@@ -64,10 +64,6 @@
  *                 npem_get_var   calculates the est'd var-cov matrix
  *
  *   npem_start.c: npem_start      program to get starting points
- *                 piksrt          simple sorting program from N.R. in C
- *                 get_seed        get seed for random number generator
- *                 gasdev          generate normal deviates
- *                 ran1            generate uniform(0,1) deviates
  *
  *   npem_matrix.c:ludcmp          LU decomposition
  *                 lubksb          forward-backward substitution
@@ -436,12 +432,6 @@ void npem_get_var(double *infor, double *rates, int *n_param,
 void npem_start(double *y, int *n_plates, double *c, int *n_groups,
                int *n, int *ns, int *len_plate, double *cv,
                double *n_sd, double *ests, double *work);
-
-void piksrt(int n, double *arr);
-
-int get_seed(void);
-double gasdev(int *idum);
-double ran1(int *idum);
 
 
 
