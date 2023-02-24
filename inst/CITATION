@@ -1,6 +1,6 @@
 citHeader("To cite R/npem in publications use:")
 
-citEntry(entry="article",
+bibentry(bibtype="article",
          title = "Estimation of antigen-responsive {T} cell frequencies in {PBMC} from human subjects",
          author = personList(person("Karl", "Broman"),
                              person("Terry", "Speed"),

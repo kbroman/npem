@@ -1,5 +1,17 @@
 ## Revision history for the R/npem package
 
+### Version 0.53-1, 2023-02-22
+
+- Changelog -> NEWS.md
+
+- In CITATION file, citEntry() -> bibentry()
+
+
+### Version 0.52, 2021-07-14
+
+- Remove Numerical Recipes in C code for sort and rand
+
+
 ### Version 0.51-6, 2019-06-15
 
 - Add "LazyData: true" in DESCRIPTION file to avoid some warnings.
@@ -20,7 +32,7 @@
 - Changed license to GPL-3.
 
 
-Verison 0.51-2, 2011-11-07
+### Verison 0.51-2, 2011-11-07
 
 - Added NAMESPACE.
 
