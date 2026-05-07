@@ -2,9 +2,9 @@ citHeader("To cite R/npem in publications use:")
 
 bibentry(bibtype="article",
          title = "Estimation of antigen-responsive {T} cell frequencies in {PBMC} from human subjects",
-         author = personList(person("Karl", "Broman"),
-                             person("Terry", "Speed"),
-                             person("Michael", "Tigges")),
+         author = c(person("Karl", "Broman"),
+                    person("Terry", "Speed"),
+                    person("Michael", "Tigges")),
          journal = "J. Immunol. Meth.",
          year = 1996,
          volume = 198,

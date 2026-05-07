@@ -1,5 +1,10 @@
 ## Revision history for the R/npem package
 
+### Version 0.53-2, 2026-05-05
+
+- Removed includes of `R_ext/PrtUtil.h` in C code
+
+
 ### Version 0.53-1, 2023-02-22
 
 - Changelog -> NEWS.md
