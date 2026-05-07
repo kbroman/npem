@@ -19,7 +19,6 @@
 #include <stdio.h>
 #include "npem.h"
 #include <R.h>
-#include <R_ext/PrtUtil.h>
 
 /**********************************************************************
  *
