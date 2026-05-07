@@ -167,7 +167,7 @@ void npem_em(double *y, int *n_plates, double *c, int *n_groups,
   npem_ll(y, n_plates, c, n_groups, n, ns, len_plate, len_group,
          ests, loglik, maxk);
 
-  Rprintf("\tnumber of iterations: %ld\n", i+1);
+  Rprintf("\tnumber of iterations: %d\n", i+1);
 }
 
 /**********************************************************************

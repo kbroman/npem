@@ -356,7 +356,7 @@ void npem_get_rates(double *y, int *n_plates, double *c, int *n_groups,
     if(*prnt) {
       for(i=0; i< *n_se; i++) {
         for(j=0; j< *n_se; j++)
-          Rprintf("%5.2lf %1ld ",rates[i+n_param*j],
+          Rprintf("%5.2lf %1d ",rates[i+n_param*j],
                   flags[i+*n_se*j]);
         Rprintf("\n");
       }
