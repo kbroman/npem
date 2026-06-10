@@ -1,6 +1,7 @@
 ## R/npem
 
 [![R-CMD-check](https://github.com/kbroman/npem/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/npem/actions/workflows/R-CMD-check.yaml)
+[![r-universe badge](https://kbroman.r-universe.dev/npem/badges/version)](https://kbroman.r-universe.dev/npem)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5149486.svg)](https://doi.org/10.5281/zenodo.5149486)
 
 [Karl W Broman](https://kbroman.org)
@@ -10,6 +11,24 @@ with a normal-Poisson mixture model. See Broman et al. (1996)
 [Estimation of antigen-responsive T cell frequencies in PBMC from human subjects](https://www.biostat.wisc.edu/~kbroman/publications/jim.pdf)
 J Immunol Meth 198:119-132.
 [doi:10.1016/S0022-1759(96)00136-6](https://doi.org/b54v33)
+
+### Installation
+
+Install the package from [r
+universe](https://kbroman.r-universe.dev/npem):
+
+```r
+install.packages("npem", repos="https://kbroman.r-universe.dev")
+```
+
+Alternatively, use the [remotes](https://remotes.r-lib.org) package to
+install it from [GitHub](https://github.com/kbroman/npem):
+
+```r
+install.packages("remotes")
+library(remotes)
+install_github("kbroman/npem")
+```
 
 ### License
 
