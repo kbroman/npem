@@ -4,8 +4,6 @@
 [![r-universe badge](https://kbroman.r-universe.dev/npem/badges/version)](https://kbroman.r-universe.dev/npem)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5149486.svg)](https://doi.org/10.5281/zenodo.5149486)
 
-[Karl W Broman](https://kbroman.org)
-
 [R/npem](https://github.com/kbroman/npem) is an R package for the analysis of cell proliferation assays
 with a normal-Poisson mixture model. See Broman et al. (1996)
 [Estimation of antigen-responsive T cell frequencies in PBMC from human subjects](https://www.biostat.wisc.edu/~kbroman/publications/jim.pdf)
